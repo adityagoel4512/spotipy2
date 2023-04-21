@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, Optional
 
 import spotipy2
-from spotipy2.types import Track
+from spotipy2.types import Track, AudioFeature
 
 
 class TrackMethods:
@@ -58,3 +58,8 @@ class TrackMethods:
         """
         r = await self._get("recommendations/available-genre-seeds")
         return r["genres"]
+    
+    async def get_audio_features(self: spotipy2.Spotify, ids: List[str]) -> List[AudioFeature]:
+        """Returns tracks' audio features for tracks with ids passed through."""
+        r = await self._get("audio-features", params={"ids": ",".join(self.get_id(id) for id in ids)})
+        return r["audio_features"]

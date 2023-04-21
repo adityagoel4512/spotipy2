@@ -22,7 +22,6 @@ class SearchMethods:
         params = self.wrapper(
             market=market, limit=limit, offset=offset, include_external=include_external
         )
-
         
         r = await self._get(
             "search",
@@ -31,8 +30,5 @@ class SearchMethods:
                 **params,
             },
         )
-
-        if len(r) == 1:
-            return next(iter(r.values()))
 
         return r

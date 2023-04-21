@@ -6,13 +6,15 @@ from .playlist import Playlist
 from .track import Track
 from .user import User
 from .playlist_item import PlaylistItem
+from .audio_feature import AudioFeature
 
 SPOTIFY = {
     "album": Album,
     "artist": Artist,
     "playlist": Playlist,
     "track": Track,
-    "user": User
+    "user": User,
+    "audio_feature": AudioFeature
 }
 
 __all__ = [
@@ -23,5 +25,6 @@ __all__ = [
     "Playlist",
     "Track",
     "User",
-    "PlaylistItem"
+    "PlaylistItem",
+    "AudioFeature"
 ]
