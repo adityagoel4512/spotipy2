@@ -26,6 +26,14 @@ class ArtistMethods:
             f"artists/{self.get_id(artist_id)}/top-tracks", params={"market": market}
         )
         return top_tracks["tracks"]
+    
+    async def get_artist_related_artists(
+        self: spotipy2.Spotify, artist_id: str,  # type: ignore
+    ) -> List[Artist]:
+        artists = await self._get(
+            f"artists/{self.get_id(artist_id)}/related-artists", params={}
+        )
+        return artists["artists"]
 
     async def get_artist_albums(
         self: spotipy2.Spotify,  # type: ignore
